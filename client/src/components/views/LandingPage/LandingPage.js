@@ -19,20 +19,6 @@ function LandingPage() {
     getProducts(variables);
   }, []);
 
-  // const getProducts = (variables) => {
-  //   Axios.post("/api/product/getProducts", variables).then((res) => {
-  //     if (res.data.success) {
-  //       setProducts(res.data.products);
-
-  //       setPostSize(res.data.postSize);
-
-  //       console.log(res.data.products);
-  //     } else {
-  //       alert("Failed to fetch product datas");
-  //     }
-  //   });
-  // };
-
   const getProducts = (variables) => {
     Axios.post("/api/product/getProducts", variables).then((res) => {
       if (res.data.success) {
@@ -63,7 +49,14 @@ function LandingPage() {
   const renderCards = Products.map((product, index) => {
     return (
       <Col lg={6} md={8} xs={24}>
-        <Card hoverable={true} cover={<ImageSlider images={product.images} />}>
+        <Card
+          hoverable={true}
+          cover={
+            <a href={`/product/${product._id}`}>
+              <ImageSlider images={product.images} />
+            </a>
+          }
+        >
           <Meta title={product.title} description={`${product.price}원`} />
         </Card>
       </Col>
@@ -92,7 +85,7 @@ function LandingPage() {
         </div>
       ) : (
         <div>
-          <Row getter={[16, 16]}>{renderCards}</Row>
+          <Row gutter={[16, 16]}>{renderCards}</Row>
         </div>
       )}
       <br />

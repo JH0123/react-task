@@ -5,7 +5,7 @@ const multer = require("multer");
 const { auth } = require("../middleware/auth");
 
 var storage = multer.diskStorage({
-  destination: (res, file, cb) => {
+  destination: (req, file, cb) => {
     cb(null, "uploads/");
   },
   filename: (req, file, cb) => {
@@ -63,6 +63,29 @@ router.post("/getProducts", auth, (req, res) => {
       res
         .status(200)
         .json({ success: true, products, postSize: products.length });
+    });
+});
+
+router.get("/products_by_id", auth, (req, res) => {
+  let type = req.query.type;
+  let productIds = req.query.id;
+
+  console.log("req.query.id", req.query.id);
+
+  if (type === "array") {
+    let ids = req.query.id.split(",");
+    productIds = [];
+    productIds = ids.map((item) => {
+      return item;
+    });
+  }
+  console.log("productIds", productIds);
+
+  Product.find({ _id: { $in: productIds } })
+    .populate("writer")
+    .exec((err, product) => {
+      if (err) return req.status(400).send(err);
+      return res.status(200).send(product);
     });
 });
 
