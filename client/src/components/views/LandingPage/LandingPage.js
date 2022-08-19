@@ -67,7 +67,7 @@ function LandingPage() {
     <div style={{ width: "75%", margin: "3rem auto" }}>
       <div style={{ textAlign: "center" }}>
         <h2>
-          Let's Travel Anywhere
+          Products
           <Icon type="rocket" />
         </h2>
       </div>

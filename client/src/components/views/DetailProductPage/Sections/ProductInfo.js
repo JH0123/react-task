@@ -1,4 +1,5 @@
 import { Button, Descriptions } from "antd";
+import Axios from "axios";
 import React, { useEffect, useState } from "react";
 
 function ProductInfo(props) {
