@@ -1,18 +1,29 @@
-Hello, My Friends  
-Thank you for having interest in this repository ! 
+<실행방법>
 
-To use this application, 
+1. server/config 에 dev.js 파일을 생성합니다.
+2. module.exports = {
+   mongoURI:
+   "",
+   };
+   dev.js에 다음과 같이 mongoDB의 URI를 넣어줍니다.
+3. server로 이동해서 npm i 를 해줍니다.
+4. client로 이동해서 npm i를 해줍니다.
 
-1. make dev.js file inside config folder 
-2. put mongoDB info into dev.js file 
-3. Type  " npm install " inside the root directory  ( Download Server Dependencies ) 
-4. Type " npm install " inside the client directory ( Download Front-end Dependencies )
+<기능>
+상단에 있는 sing in / sing up을 이용하여 회원가입과 로그인을 할 수 있습니다.
 
+로그인 후상단에 있는 업로드 버튼을 누르면 상품을 등록할 수 있습니다.
+만약 이미지를 여러개를 등록하면 홈 화면에서 이미지가 자동으로 전환된다.
 
-If you have problem, feel free to ask me ^^ 
+홈 화면에서 이미지를 클릭하면 상세 페이지로 이동합니다.
 
-You can watch the tutorial for this app.
+상세페이지에서 이미지를 확대해 볼 수 있으며 이미지가 여러장있을 경우
+재생 버튼을 누르면 자동으로 이미지가 넘어간다
 
-https://www.youtube.com/channel/UCFyXA9x8lpL3EYWeYhj4C4Q?view_as=subscriber
+상세페이지에서 add it cart를 클릭하면 상단에 있는 카트 모양에 몇 개의 상품이 추가되었는지
+알 수 있습니다.
 
+카트 모양을 클릭하면 현재 카드에 담은 상품들을 확인할 수 있습니다.
 
+카트로 이동하면 현재 담은 상품의 총액을 확인할 수 있으며
+삭제 버튼을 누르면 카트에 담은 상품이 지워지며 상단의 카트모양의 알림의 개수도 줄어듭니다.
